@@ -18,5 +18,6 @@ COPY Pipfile Pipfile.lock ./
 COPY app ./app
 
 RUN pipenv install --system
+RUN pip list
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]

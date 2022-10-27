@@ -19,3 +19,6 @@ unit_tests_local:
 
 check_typing:
 	@docker-compose exec -T app-test mypy .
+
+req:
+	pip freeze > requirements.txt

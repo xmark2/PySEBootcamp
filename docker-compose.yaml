@@ -3,7 +3,7 @@ version: "3"
 services:
   app:
     build:
-      context: ..
+      context: ""
       args:
         - ENVIRONMENT=local
     ports:
@@ -11,12 +11,28 @@ services:
     entrypoint: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
     volumes:
       - .:/usr/src/app
+    environment:
+      - db_host=postgresql://postgres:postgres@postgresdb:5432/postgres
+    depends_on:
+      - postgresdb
 
   app-test:
     build:
-      context: ..
+      context: ""
       args:
         - ENVIRONMENT=test
     volumes:
       - .:/usr/src/app
     entrypoint: ["pytest", "tests"]
+
+  postgresdb:
+    image: postgres:14.1-alpine
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env-local
+    volumes:
+      - pgdb:/var/lib/postgresql/data
+
+volumes:
+  pgdb:

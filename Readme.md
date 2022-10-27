@@ -23,6 +23,9 @@
 ### How to stop docker-compose
     # sudo docker-compose down
 
+## How to remove volume/database
+    # sudo docker-compose down -v
+
 ## How to fix docker-compose down
     # sudo apt-get purge --auto-remove apparmor
     # sudo service docker restart
