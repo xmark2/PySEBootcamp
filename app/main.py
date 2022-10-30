@@ -29,9 +29,6 @@ def create_profile_infos_and_users_content():
     return profile_infos, users_content
 
 
-from models import recreate_postgres_tables
-recreate_postgres_tables()
-
 app = create_application()
 
 # uvicorn main:app --reload

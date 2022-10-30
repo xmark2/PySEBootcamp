@@ -33,4 +33,18 @@
 
 ## How to run test environment of docker-compose
     # sudo docker-compose exec -T app-test pytest tests
-    
+
+## How to run a service in dameon/background mode with docker-compose
+    # sudo docker-compose up -d postgresdb
+    # sudo docker-compose up -d servicename
+
+## How to init alembic to continue Database as left?
+    ## alembic init alembic
+
+## How to start migrate with alembic?
+    ## source .env-migrations-local
+    ## alembic revision --autogenerate -m "Creating first tables"
+    ## alembic upgrade head
+    ## alembic downgrade -1
+
+   
