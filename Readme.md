@@ -47,4 +47,26 @@
     ## alembic upgrade head
     ## alembic downgrade -1
 
+## How to connect to sqlalchemy?
+    ##  from models.base import Base, engine
+    ##  from models.user import User
+    ##  from sqlalchemy import select
+    ##  from sqlalchemy.orm import Session
+    ##  session = Session(bind=engine, future=True)
+    ##  select_stmt = select(User)
+    ##  res = session.execute(select_stmt).scalars().first()
+    ##  res.id
+    ##  res.created_at
+    ##  res.username
+    ##  res = session.execute(select_stmt).scalars().all()
+    ##  select_stmt = select(User).where(User.username == "b")
+    ##  Base.metadata.tables["user"]
+    ##  stmt= select(Base.metadata.tables["user"])
+    ##  res = session.execute(stmt).scalars().all()
+    ##  stmt= select(Base.metadata.tables["user"]).where(Base.metadata.tables["user"].c.username == "b")
+    ##  with session.begin():
+    ##      res = session.execute(stmt).all()
+
+
+
    
