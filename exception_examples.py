@@ -2,6 +2,7 @@ class ThisIsACustomException(Exception):
     pass
 
 
+a = 'bgfhddgfhdghdfghd' + 'sgsfdgsdfg' + 'bgfhddgfhdghdfghd' + 'sgsfdgsdfg' + 'bgfhddgfhdghdfghd' + 'sgsfdgsdfg' + 'bgfhddgfhdghdfghd' + 'sgsfdgsdfg'
 sample_dict = {"a": 1}
 
 print(sample_dict["a"])
